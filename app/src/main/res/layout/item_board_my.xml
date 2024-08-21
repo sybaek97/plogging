@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <!-- ViewModel or any other bindings -->
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+        <TextView
+            app:layout_constraintEnd_toEndOf="@id/txtMessage"
+            android:id="@+id/txt_nickname"
+            style="@style/txt_middle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="아이디"
+            android:layout_marginBottom="7dp"
+            android:textColor="@color/sub_gray"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/txtMessage"
+            />
+
+        <TextView
+            app:layout_constraintEnd_toStartOf="@id/txt_nickname"
+            android:id="@+id/txt_time"
+            style="@style/txt_middle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:text="시간"
+            android:textColor="@color/sub_gray"
+            app:layout_constraintBottom_toBottomOf="@id/txt_nickname"
+            app:layout_constraintTop_toTopOf="parent"
+         />
+
+        <TextView
+            android:layout_marginHorizontal="15dp"
+            android:id="@+id/txtMessage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edittext_border"
+            android:padding="15dp"
+            android:textAlignment="textEnd"
+            android:textColor="@color/text_black"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
