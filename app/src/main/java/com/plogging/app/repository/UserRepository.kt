@@ -1,5 +1,6 @@
 package com.plogging.app.repository
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthException
@@ -60,7 +61,17 @@ class UserRepository(private val db: FirebaseFirestore) {
                 _points.postValue(null)
             }
     }
-
+    fun updatePoints(uid: String, newPoint: Int) {
+        db.collection("points").document(uid)
+            .update("points", newPoint)
+            .addOnSuccessListener {
+                _points.value = newPoint
+                Log.d("UserViewModel", "Points successfully updated to $newPoint")
+            }
+            .addOnFailureListener { exception ->
+                Log.e("UserViewModel", "Error updating points", exception)
+            }
+    }
     fun signUpUser(email:String,password:String,nickName:String,studentId:String, onSuccess: () -> Unit, onFailure: (String) -> Unit){
         val auth = FirebaseAuth.getInstance()
         auth.createUserWithEmailAndPassword(email,password)

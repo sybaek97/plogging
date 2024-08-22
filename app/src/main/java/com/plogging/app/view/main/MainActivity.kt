@@ -5,6 +5,7 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.setupWithNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.plogging.app.R
@@ -23,7 +24,6 @@ class MainActivity : AppCompatActivity() {
 
         viewPager = binding.viewPager
         bottomNavigationView = binding.bottomNavigation
-
         val adapter = ViewPagerAdapter(this)
         viewPager.adapter = adapter
         viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback(){

@@ -37,6 +37,11 @@ class UserViewModel(private val repository: UserRepository): ViewModel() {
             repository.getPoints(uid)
         }
     }
+    fun updatePoints(uid:String, newPoint : Int){
+        viewModelScope.launch {
+            repository.updatePoints(uid,newPoint)
+        }
+    }
 
     fun signUpUser(email: String, password: String, nickName: String,studentId: String, onSuccess: () -> Unit, onFailure: (String) -> Unit) {
         viewModelScope.launch {
