@@ -65,6 +65,7 @@ class MypageFragment:BaseMainFragment() {
         }
         binding.btnLogout.setOnClickListener {
             logout()
+            activity?.finish()
             val intent = Intent(requireContext(), LoginActivity::class.java)
             startActivity(intent)
         }

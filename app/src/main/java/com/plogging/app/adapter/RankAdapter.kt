@@ -3,6 +3,7 @@ package com.plogging.app.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.auth.FirebaseAuth
 import com.plogging.app.data.RankData
 import com.plogging.app.databinding.ItemRankingBinding
 

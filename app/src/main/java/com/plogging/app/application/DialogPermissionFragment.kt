@@ -83,6 +83,7 @@ class DialogPermissionFragment:BottomSheetDialogFragment() {
     }
 
     private fun startMapActivity() {
+        activity?.finish()
         val intent = Intent(requireContext(), MapActivity::class.java)
         startActivity(intent)
     }

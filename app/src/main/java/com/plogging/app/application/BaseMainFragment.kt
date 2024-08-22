@@ -20,7 +20,7 @@ abstract class BaseMainFragment: Fragment() {
 
         val callback = requireActivity().onBackPressedDispatcher.addCallback(this){
             if(System.currentTimeMillis()>backKeyPressedTime + 2000){
-                Toast.makeText(context, R.string.txt_pressed_back_logout, Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, R.string.txt_pressed_back, Toast.LENGTH_SHORT).show()
                 backKeyPressedTime = System.currentTimeMillis()
                 return@addCallback
             }else{
@@ -29,8 +29,6 @@ abstract class BaseMainFragment: Fragment() {
                 }else{
                     logout()
                     activity?.finish()
-                    val intent = Intent(requireContext(), LoginActivity::class.java)
-                    startActivity(intent)
                 }
             }
         }

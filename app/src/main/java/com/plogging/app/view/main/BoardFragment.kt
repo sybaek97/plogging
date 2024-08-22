@@ -21,7 +21,7 @@ import com.plogging.app.viewModel.UserViewModel
 import com.plogging.app.viewModel.UserViewModelFactory
 
 class BoardFragment: BaseMainFragment() {
-    override var isBackAvailable: Boolean = false
+    override var isBackAvailable: Boolean = true
 
     private lateinit var binding: FragmentBoardBinding
     private val db = FirebaseFirestore.getInstance()
