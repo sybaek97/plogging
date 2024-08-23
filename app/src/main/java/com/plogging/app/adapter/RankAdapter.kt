@@ -11,9 +11,9 @@ class RankAdapter (private val rankingList: List<RankData>) : RecyclerView.Adapt
 
     inner class RankingViewHolder(private val binding: ItemRankingBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(userRank: RankData) {
-            binding.txtNickname.text = userRank.nickname
-            binding.txtPoints.text = userRank.point.toString()
-            binding.txtRank.text=userRank.rank.toString()
+            binding.txtNickname.text = "닉네임 : ${userRank.nickname}"
+            binding.txtPoints.text = "${userRank.point.toString()}점"
+            binding.txtRank.text="${userRank.rank.toString()}위"
         }
     }
 

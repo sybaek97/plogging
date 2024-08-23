@@ -19,6 +19,8 @@ class UserRepository(private val db: FirebaseFirestore) {
         get()=_studentId
     val points: MutableLiveData<Int?>
         get() = _points
+    private var point : Int = 0
+
     fun getNickname(uid:String){
         db.collection("users").document(uid).get()
             .addOnSuccessListener { document->
@@ -47,12 +49,12 @@ class UserRepository(private val db: FirebaseFirestore) {
                 _studentId.postValue(null)
             }
     }
-    fun getPoints(email: String) {
-        db.collection("points").document(email).get()
+    fun getPoints(uid: String) {
+        db.collection("points").document(uid).get()
             .addOnSuccessListener { document ->
                 if (document != null) {
-                    val points = document.getLong("points")?.toInt()
-                    _points.postValue(points)
+                    point = document.getLong("points")?.toInt()!!
+                    _points.postValue(point)
                 } else {
                     _points.postValue(null)
                 }
@@ -62,8 +64,9 @@ class UserRepository(private val db: FirebaseFirestore) {
             }
     }
     fun updatePoints(uid: String, newPoint: Int) {
+
         db.collection("points").document(uid)
-            .update("points", newPoint)
+            .update("points", point+newPoint)
             .addOnSuccessListener {
                 _points.value = newPoint
                 Log.d("UserViewModel", "Points successfully updated to $newPoint")
